@@ -41,14 +41,14 @@ function App() {
 
         })
     } else {
-      alert("Please enter a message");
+      alert("Please Enter a Message");
       return;
     }
   }
 
   return (
     <div>
-      <div className="container-fluid bg-light">
+      <div className="container-fluid">
 
         <h1 className='text-center p-4'> React Chat-App </h1>
 
@@ -62,7 +62,7 @@ function App() {
             <Form.Control
               onChange={(e) => { setText(e.target.value) }}
               type="text"
-              placeholder="Enter your message"
+              placeholder="Enter Your Message"
               className="shadow-none border-dark rounded rounded-0"
             />
             <Button variant="dark" type="submit" className="rounded rounded-0 shadow-none">
@@ -80,9 +80,13 @@ function App() {
           {messages?.map((eachMessage, index) => (
             <div key={`${index}-message`} style={{
               display: "flex",
-              justifyContent: (eachMessage.sender === "user") ? "flex-end" : "flex-start"
+              justifyContent: (eachMessage.sender === "user") ? "flex-end" : "flex-start",
+              alignItems: "center",
             }}>
-              <p className='border border-dark p-2 rounded rounded-2 fw-bold'>{eachMessage.text}</p>
+              <p className='border p-2 rounded rounded-3 fw-bold' style={{
+                backgroundColor: (eachMessage.sender === "user") ? "#2975e6" : "#4c5159",
+                color: 'white',
+              }}>{ eachMessage.text } </p>
             </div>
           ))}
 
